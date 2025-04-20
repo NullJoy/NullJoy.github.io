@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>http://example.com/2021/09/05/What-did-I-do-as-an-SDE-intern-at-IKEA/</loc>
+    <loc>http://example.com/2021/07/29/Quick-notes-on-Scrum-basics/</loc>
     <lastmod>2025-04-20</lastmod>
   </url>
   <url>
-    <loc>http://example.com/2021/07/12/hello-world/</loc>
-    <lastmod>2021-12-23</lastmod>
+    <loc>http://example.com/2021/09/05/My-journey-at-IKEA-Digital-Hub/</loc>
+    <lastmod>2025-04-20</lastmod>
   </url>
   <url>
-    <loc>http://example.com/2021/07/29/Quick-Notes-on-Scrum-Basics/</loc>
-    <lastmod>2021-07-29</lastmod>
+    <loc>http://example.com/2021/07/12/Hexo-basics/</loc>
+    <lastmod>2025-04-20</lastmod>
   </url>
 </urlset> 
