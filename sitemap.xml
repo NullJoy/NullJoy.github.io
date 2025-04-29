@@ -2,21 +2,35 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://example.com/2021/07/29/Quick-notes-on-Scrum-basics/</loc>
+    <loc>http://example.com/2025/04/28/AI-Infra-ML-System/</loc>
     
-    <lastmod>2025-04-20</lastmod>
+    <lastmod>2025-04-29</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://example.com/2021/07/12/Hexo-basics/</loc>
+    
+    <lastmod>2025-04-29</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://example.com/2025/04/27/System-design-101/</loc>
+    
+    <lastmod>2025-04-28</lastmod>
     
   </url>
   
   <url>
     <loc>http://example.com/2021/09/05/My-journey-at-IKEA-Digital-Hub/</loc>
     
-    <lastmod>2025-04-20</lastmod>
+    <lastmod>2025-04-28</lastmod>
     
   </url>
   
   <url>
-    <loc>http://example.com/2021/07/12/Hexo-basics/</loc>
+    <loc>http://example.com/2021/07/29/Quick-notes-on-Scrum-basics/</loc>
     
     <lastmod>2025-04-20</lastmod>
     
@@ -60,22 +74,50 @@
 
   <url>
     <loc>http://example.com/</loc>
-    <lastmod>2025-04-20</lastmod>
+    <lastmod>2025-04-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
 
   
   <url>
+    <loc>http://example.com/tags/AI-infrastructure/</loc>
+    <lastmod>2025-04-29</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.com/tags/ML-systems/</loc>
+    <lastmod>2025-04-29</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.com/tags/Career-development/</loc>
+    <lastmod>2025-04-29</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://example.com/tags/Intership/</loc>
-    <lastmod>2025-04-20</lastmod>
+    <lastmod>2025-04-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://example.com/tags/Scrum/</loc>
-    <lastmod>2025-04-20</lastmod>
+    <lastmod>2025-04-29</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.com/tags/System-design/</loc>
+    <lastmod>2025-04-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
@@ -84,14 +126,14 @@
   
   <url>
     <loc>http://example.com/categories/Tech-Misc/</loc>
-    <lastmod>2025-04-20</lastmod>
+    <lastmod>2025-04-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://example.com/categories/Life-Log/</loc>
-    <lastmod>2025-04-20</lastmod>
+    <lastmod>2025-04-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
