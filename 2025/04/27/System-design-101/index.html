@@ -26,8 +26,9 @@
 <meta property="og:description" content="System design topicsPerformance vs Scalability A performance problem: your system is slow for a single user. A scalability problem: your system is fast for a single user, but slow under heavy load.  L">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/images/post-content/load-balancer-1.drawio.png">
+<meta property="og:image" content="http://example.com/images/post-content/reverse-proxy-1.drawio.png">
 <meta property="article:published_time" content="2025-04-28T05:31:29.000Z">
-<meta property="article:modified_time" content="2025-10-28T05:43:56.785Z">
+<meta property="article:modified_time" content="2025-11-05T05:40:09.477Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="System design">
 <meta name="twitter:card" content="summary">
@@ -381,10 +382,10 @@
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2025/04/27/System-design-101/#comments" class="article-comment-link">Comments</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 1.8k(words)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 2k(words)</span>
 	
 	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Count: 11(minutes)</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Count: 12(minutes)</span>
 	
 
       </div>
@@ -602,7 +603,33 @@
 <li>Introducing a load balancer to help eliminate a single point of failure results in increased complexity.</li>
 <li>A single load balancer is a single point of failure, configuring multiple load balancers further increases complexity.</li>
 </ul>
-<h2 id="Reverse-proxy-web-server"><a href="#Reverse-proxy-web-server" class="headerlink" title="Reverse proxy (web server)"></a>Reverse proxy (web server)</h2><h3 id="Load-balancer-VS-reverse-proxy"><a href="#Load-balancer-VS-reverse-proxy" class="headerlink" title="Load balancer VS reverse proxy"></a>Load balancer VS reverse proxy</h3><h3 id="Disadvantages-of-reverse-proxy"><a href="#Disadvantages-of-reverse-proxy" class="headerlink" title="Disadvantages of reverse proxy"></a>Disadvantages of reverse proxy</h3><h2 id="Application-layer"><a href="#Application-layer" class="headerlink" title="Application layer"></a>Application layer</h2><h3 id="Microservices"><a href="#Microservices" class="headerlink" title="Microservices"></a>Microservices</h3><h3 id="Service-discovery"><a href="#Service-discovery" class="headerlink" title="Service discovery"></a>Service discovery</h3><h3 id="Disadvantages-of-application-layer"><a href="#Disadvantages-of-application-layer" class="headerlink" title="Disadvantages of application layer"></a>Disadvantages of application layer</h3><h2 id="Database"><a href="#Database" class="headerlink" title="Database"></a>Database</h2><h2 id="Cache"><a href="#Cache" class="headerlink" title="Cache"></a>Cache</h2><h2 id="Asynchronism"><a href="#Asynchronism" class="headerlink" title="Asynchronism"></a>Asynchronism</h2><h2 id="Communication"><a href="#Communication" class="headerlink" title="Communication"></a>Communication</h2><h2 id="Security"><a href="#Security" class="headerlink" title="Security"></a>Security</h2><h2 id="Appendix"><a href="#Appendix" class="headerlink" title="Appendix"></a>Appendix</h2><h1 id="How-to-approach-a-system-design-interview-question"><a href="#How-to-approach-a-system-design-interview-question" class="headerlink" title="How to approach a system design interview question"></a>How to approach a system design interview question</h1><h1 id="References"><a href="#References" class="headerlink" title="References"></a>References</h1><ul>
+<h2 id="Reverse-proxy-web-server"><a href="#Reverse-proxy-web-server" class="headerlink" title="Reverse proxy (web server)"></a>Reverse proxy (web server)</h2><img src="/images/post-content/reverse-proxy-1.drawio.png" style="max-width: 50%; display: block; margin-left: auto; margin-right: auto; margin-top: 40px; margin-bottom: 40px;">
+
+<ul>
+<li>A reverse proxy is a web server that centralizes internal services and provides unified interfaces to the public. Requests form clients are forwarded to a server that can fulfill it before the reverse proxy returns the server’s response to the client.</li>
+<li>Additional benefits:<ul>
+<li>Increased security: Hide information about backend servers, blacklist IPs, limit number of connections per client.</li>
+<li>Increased scalability and flexibility: Clients only see the reverse proxy’s IP, allowing you to scale servers or change their configuration.</li>
+<li>SSL termination: Decrypt incoming requests and encrypt server responses so backend servers do not have to perform these potentially expensive operations.<ul>
+<li>Remove the need to install X.509 certificates on each server.</li>
+</ul>
+</li>
+<li>Compression: Compress server responses.</li>
+<li>Caching: Return the response for cached requests.</li>
+<li>Static content: Serve static content direclty (HTML/CSS/JS, photos, videos, etc.)</li>
+</ul>
+</li>
+</ul>
+<h3 id="Load-balancer-VS-reverse-proxy"><a href="#Load-balancer-VS-reverse-proxy" class="headerlink" title="Load balancer VS reverse proxy"></a>Load balancer VS reverse proxy</h3><ul>
+<li>Deploying a load balancer is useful when you have multiple servers. Often, load balancers route traffic to a set of servers serving the same function.</li>
+<li>Reverse proxies can be useful even with just one web server or application server, opening up the benefits described in the previous section.</li>
+<li>Solutions such as NGINX and HAProxy can support both layer 7 reverse proxying and load balancing.</li>
+</ul>
+<h3 id="Disadvantages-of-reverse-proxy"><a href="#Disadvantages-of-reverse-proxy" class="headerlink" title="Disadvantages of reverse proxy"></a>Disadvantages of reverse proxy</h3><ul>
+<li>Introducing a reverse proxy resutls in increased complexity.</li>
+<li>A single reverse proxy is a single point of failure, configuring multiple reverse proxies (i.e. a failover) further increases complexity.</li>
+</ul>
+<h2 id="Application-layer"><a href="#Application-layer" class="headerlink" title="Application layer"></a>Application layer</h2><h3 id="Microservices"><a href="#Microservices" class="headerlink" title="Microservices"></a>Microservices</h3><h3 id="Service-discovery"><a href="#Service-discovery" class="headerlink" title="Service discovery"></a>Service discovery</h3><h3 id="Disadvantages-of-application-layer"><a href="#Disadvantages-of-application-layer" class="headerlink" title="Disadvantages of application layer"></a>Disadvantages of application layer</h3><h2 id="Database"><a href="#Database" class="headerlink" title="Database"></a>Database</h2><h2 id="Cache"><a href="#Cache" class="headerlink" title="Cache"></a>Cache</h2><h2 id="Asynchronism"><a href="#Asynchronism" class="headerlink" title="Asynchronism"></a>Asynchronism</h2><h2 id="Communication"><a href="#Communication" class="headerlink" title="Communication"></a>Communication</h2><h2 id="Security"><a href="#Security" class="headerlink" title="Security"></a>Security</h2><h2 id="Appendix"><a href="#Appendix" class="headerlink" title="Appendix"></a>Appendix</h2><h1 id="How-to-approach-a-system-design-interview-question"><a href="#How-to-approach-a-system-design-interview-question" class="headerlink" title="How to approach a system design interview question"></a>How to approach a system design interview question</h1><h1 id="References"><a href="#References" class="headerlink" title="References"></a>References</h1><ul>
 <li><a target="_blank" rel="noopener" href="https://github.com/donnemartin/system-design-primer">system design primer</a></li>
 </ul>
 
