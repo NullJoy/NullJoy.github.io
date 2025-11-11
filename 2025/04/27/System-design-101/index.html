@@ -27,8 +27,9 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/images/post-content/load-balancer-1.drawio.png">
 <meta property="og:image" content="http://example.com/images/post-content/reverse-proxy-1.drawio.png">
+<meta property="og:image" content="http://example.com/images/post-content/application-layer-1.drawio.png">
 <meta property="article:published_time" content="2025-04-28T05:31:29.000Z">
-<meta property="article:modified_time" content="2025-11-05T05:40:09.477Z">
+<meta property="article:modified_time" content="2025-11-11T03:23:57.056Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="System design">
 <meta name="twitter:card" content="summary">
@@ -382,10 +383,10 @@
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2025/04/27/System-design-101/#comments" class="article-comment-link">Comments</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 2k(words)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 2.2k(words)</span>
 	
 	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Count: 12(minutes)</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Count: 13(minutes)</span>
 	
 
       </div>
@@ -629,7 +630,36 @@
 <li>Introducing a reverse proxy resutls in increased complexity.</li>
 <li>A single reverse proxy is a single point of failure, configuring multiple reverse proxies (i.e. a failover) further increases complexity.</li>
 </ul>
-<h2 id="Application-layer"><a href="#Application-layer" class="headerlink" title="Application layer"></a>Application layer</h2><h3 id="Microservices"><a href="#Microservices" class="headerlink" title="Microservices"></a>Microservices</h3><h3 id="Service-discovery"><a href="#Service-discovery" class="headerlink" title="Service discovery"></a>Service discovery</h3><h3 id="Disadvantages-of-application-layer"><a href="#Disadvantages-of-application-layer" class="headerlink" title="Disadvantages of application layer"></a>Disadvantages of application layer</h3><h2 id="Database"><a href="#Database" class="headerlink" title="Database"></a>Database</h2><h2 id="Cache"><a href="#Cache" class="headerlink" title="Cache"></a>Cache</h2><h2 id="Asynchronism"><a href="#Asynchronism" class="headerlink" title="Asynchronism"></a>Asynchronism</h2><h2 id="Communication"><a href="#Communication" class="headerlink" title="Communication"></a>Communication</h2><h2 id="Security"><a href="#Security" class="headerlink" title="Security"></a>Security</h2><h2 id="Appendix"><a href="#Appendix" class="headerlink" title="Appendix"></a>Appendix</h2><h1 id="How-to-approach-a-system-design-interview-question"><a href="#How-to-approach-a-system-design-interview-question" class="headerlink" title="How to approach a system design interview question"></a>How to approach a system design interview question</h1><h1 id="References"><a href="#References" class="headerlink" title="References"></a>References</h1><ul>
+<h2 id="Application-layer"><a href="#Application-layer" class="headerlink" title="Application layer"></a>Application layer</h2><img src="/images/post-content/application-layer-1.drawio.png" style="max-width: 50%; display: block; margin-left: auto; margin-right: auto; margin-top: 40px; margin-bottom: 40px;">
+
+<ul>
+<li>Separating out the web layer from the application layer (aka platform layer) allows you to scale and configure both layers independently.<ul>
+<li>Adding a new API results in adding application servers without necessarily adding additional web servers.</li>
+<li>The <em>single responsibility principle</em> advocates for small and autonomous services that work together.</li>
+<li>Small teams with small services can plan more aggressively for rapid growth.</li>
+</ul>
+</li>
+<li>Workers in the application layer also help enable <em>asynchronism</em>.</li>
+</ul>
+<h3 id="Microservices"><a href="#Microservices" class="headerlink" title="Microservices"></a>Microservices</h3><ul>
+<li>A suite of independently deployable, small, modular services. <ul>
+<li>Each service runs a unique process and communicates through a well-defined, lightweight mechanism to serve a business goal.</li>
+<li>E.g. Pinterest could have the following microservices: user profile, follower, feed, search, photo upload, etc.</li>
+</ul>
+</li>
+</ul>
+<h3 id="Service-discovery"><a href="#Service-discovery" class="headerlink" title="Service discovery"></a>Service discovery</h3><ul>
+<li>Systems such as Consul, Etcd, and Zookeeper can help services find each other by keeping track of registered names, addresses, and ports.<ul>
+<li>Health checks help verify service intgrity and are often done using an HTTP endpoint. </li>
+<li>Both Consul and Etcd have a built in key-value store that can be useful for storing config values and other shared data.</li>
+</ul>
+</li>
+</ul>
+<h3 id="Disadvantages-of-application-layer"><a href="#Disadvantages-of-application-layer" class="headerlink" title="Disadvantages of application layer"></a>Disadvantages of application layer</h3><ul>
+<li>Adding an application layer with loosely coupled services requires a different approach from an architectural, operations, and process viewpoint (vs a monolithic system).</li>
+<li>Microservices can add complexity in terms of deployments, and operations.</li>
+</ul>
+<h2 id="Database"><a href="#Database" class="headerlink" title="Database"></a>Database</h2><h2 id="Cache"><a href="#Cache" class="headerlink" title="Cache"></a>Cache</h2><h2 id="Asynchronism"><a href="#Asynchronism" class="headerlink" title="Asynchronism"></a>Asynchronism</h2><h2 id="Communication"><a href="#Communication" class="headerlink" title="Communication"></a>Communication</h2><h2 id="Security"><a href="#Security" class="headerlink" title="Security"></a>Security</h2><h2 id="Appendix"><a href="#Appendix" class="headerlink" title="Appendix"></a>Appendix</h2><h1 id="How-to-approach-a-system-design-interview-question"><a href="#How-to-approach-a-system-design-interview-question" class="headerlink" title="How to approach a system design interview question"></a>How to approach a system design interview question</h1><h1 id="References"><a href="#References" class="headerlink" title="References"></a>References</h1><ul>
 <li><a target="_blank" rel="noopener" href="https://github.com/donnemartin/system-design-primer">system design primer</a></li>
 </ul>
 
