@@ -4,7 +4,7 @@
   <url>
     <loc>http://example.com/2025/04/27/System-design-101/</loc>
     
-    <lastmod>2025-11-11</lastmod>
+    <lastmod>2025-11-14</lastmod>
     
   </url>
   
@@ -74,7 +74,7 @@
 
   <url>
     <loc>http://example.com/</loc>
-    <lastmod>2025-11-11</lastmod>
+    <lastmod>2025-11-14</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -82,42 +82,42 @@
   
   <url>
     <loc>http://example.com/tags/AI-infrastructure/</loc>
-    <lastmod>2025-11-11</lastmod>
+    <lastmod>2025-11-14</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://example.com/tags/ML-systems/</loc>
-    <lastmod>2025-11-11</lastmod>
+    <lastmod>2025-11-14</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://example.com/tags/Career-development/</loc>
-    <lastmod>2025-11-11</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://example.com/tags/Intership/</loc>
-    <lastmod>2025-11-11</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://example.com/tags/System-design/</loc>
-    <lastmod>2025-11-11</lastmod>
+    <lastmod>2025-11-14</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://example.com/tags/Scrum/</loc>
-    <lastmod>2025-11-11</lastmod>
+    <lastmod>2025-11-14</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.com/tags/Intership/</loc>
+    <lastmod>2025-11-14</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.com/tags/System-design/</loc>
+    <lastmod>2025-11-14</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
@@ -126,14 +126,14 @@
   
   <url>
     <loc>http://example.com/categories/Tech-Misc/</loc>
-    <lastmod>2025-11-11</lastmod>
+    <lastmod>2025-11-14</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://example.com/categories/Life-Log/</loc>
-    <lastmod>2025-11-11</lastmod>
+    <lastmod>2025-11-14</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
