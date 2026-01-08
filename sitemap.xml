@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://example.com/2021/07/29/Quick-notes-on-Scrum-basics/</loc>
+    
+    <lastmod>2026-01-08</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://example.com/2021/07/05/Hexo-basics/</loc>
     
     <lastmod>2026-01-08</lastmod>
@@ -26,13 +33,6 @@
     <loc>http://example.com/2025/04/28/AI-Infra-ML-System/</loc>
     
     <lastmod>2025-04-29</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://example.com/2021/07/29/Quick-notes-on-Scrum-basics/</loc>
-    
-    <lastmod>2025-04-20</lastmod>
     
   </url>
   
@@ -109,14 +109,14 @@
   </url>
   
   <url>
-    <loc>http://example.com/tags/Scrum/</loc>
+    <loc>http://example.com/tags/System-design/</loc>
     <lastmod>2026-01-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://example.com/tags/System-design/</loc>
+    <loc>http://example.com/tags/Scrum/</loc>
     <lastmod>2026-01-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
