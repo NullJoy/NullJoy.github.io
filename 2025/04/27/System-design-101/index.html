@@ -17,7 +17,7 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>System design 101 (WIP) | QyL&#39;s Blog</title>
+  <title>System design 101 (WIP) | NullJoy&#39;s Blog</title>
   <meta name="description" content="System design topicsPerformance vs Scalability A performance problem: your system is slow for a single user. A scalability problem: your system is fast for a single user, but slow under heavy load.  L">
 <meta property="og:type" content="article">
 <meta property="og:title" content="System design 101 (WIP)">
@@ -34,7 +34,7 @@
 <meta property="og:image" content="http://example.com/images/post-content/database-4.drawio.png">
 <meta property="og:image" content="http://example.com/images/post-content/database-5.drawio.png">
 <meta property="article:published_time" content="2025-04-28T05:31:29.000Z">
-<meta property="article:modified_time" content="2025-11-18T06:33:11.992Z">
+<meta property="article:modified_time" content="2025-11-27T05:26:57.000Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="System design">
 <meta name="twitter:card" content="summary">
@@ -56,7 +56,7 @@
   
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1.4.0/dist/gitalk.min.css">
   
-<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+<meta name="generator" content="Hexo 8.1.1"><link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
 </head>
 
 
@@ -242,7 +242,7 @@
   <div class="widget">
     <h3 class="widget-title">Archive</h3>
     <div class="widget-body">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/04/">April 2025</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a><span class="archive-list-count">2</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/04/">April 2025</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a><span class="archive-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -254,6 +254,21 @@
     <div class="widget-body">
       <ul class="recent-post-list list-unstyled no-thumbnail">
         
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/Tech-Misc/">Tech Misc</a>
+              </p>
+              <p class="item-title">
+                <a href="/2025/04/28/Hexo-basics/" class="title">Hexo basics</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2025-04-29T02:28:01.000Z" itemprop="datePublished">2025-04-28</time>
+              </p>
+            </div>
+          </li>
+          
           <li>
             
             <div class="item-inner">
@@ -310,21 +325,6 @@
               </p>
               <p class="item-date">
                 <time datetime="2021-07-30T04:52:38.000Z" itemprop="datePublished">2021-07-29</time>
-              </p>
-            </div>
-          </li>
-          
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category">
-                <a class="category-link" href="/categories/Tech-Misc/">Tech Misc</a>
-              </p>
-              <p class="item-title">
-                <a href="/2021/07/12/Hexo-basics/" class="title">Hexo basics</a>
-              </p>
-              <p class="item-date">
-                <time datetime="2021-07-12T09:00:22.219Z" itemprop="datePublished">2021-07-12</time>
               </p>
             </div>
           </li>
@@ -388,10 +388,10 @@
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2025/04/27/System-design-101/#comments" class="article-comment-link">Comments</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 3.6k(words)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 3.9k(words)</span>
 	
 	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Count: 22(minutes)</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Count: 24(minutes)</span>
 	
 
       </div>
@@ -832,9 +832,46 @@
 <li>Soft state: the state of the system may change over time, even without input.</li>
 <li>Eventual consistency: the system will become consistent over a period of time, given that the system doesn’t receive input during that period.</li>
 </ul>
-<h4 id="NoSQL-database-types"><a href="#NoSQL-database-types" class="headerlink" title="NoSQL database types"></a>NoSQL database types</h4><p>Key-value store</p>
+<h4 id="NoSQL-database-types"><a href="#NoSQL-database-types" class="headerlink" title="NoSQL database types"></a>NoSQL database types</h4><ul>
+<li>In addition to choosing between SQL or NoSQL, it is helpful to understand which type of NoSQL database best fits your use case(s).</li>
+</ul>
+<p>Key-value store</p>
+<ul>
+<li>Abstraction: hash table</li>
+<li>A key-value store generally allows for O(1) reads and wrtes and is often backed by memory or SSD. <ul>
+<li>Data stores can maintain keys in lexicographic order, allowing efficient retrieval of key ranges. </li>
+<li>Key-value stores can allow for storing of metadata with a value.</li>
+</ul>
+</li>
+<li>Key-value stores provide high performance and are often used for simple data models or for rapidly-changing data, such as an in-memory cache layer. <ul>
+<li>Since they offer only a limited set of operations, complexity is shifted to the application layer if additional operations are needed.</li>
+</ul>
+</li>
+<li>A key-value store is the basis for more complex systems such as a document store, and in some cases, a graph database.</li>
+</ul>
 <p>Document store</p>
+<ul>
+<li>Abstraction: key-value store with documents stored as values</li>
+<li>A document store is centered around documents (XML, JSON, binary, etc.), where a document stores all information for a given object.<ul>
+<li>Document stores provide APIs or a query language to query based on the internal structure of the document itself.</li>
+<li>Note, many key-value stores include features for working with a value’s metadata, blurring the lines between these two storage types.</li>
+</ul>
+</li>
+<li>Based on the underlying implementation, documents are organized by collections, tags, metadata, or directories.<ul>
+<li>Although documents can be organized or grouped together, documents may have fields that are completely different from each other.</li>
+</ul>
+</li>
+<li>Some document stores like MangoDB and CouchDB also provide a SQL-like language to perform complex queries.<ul>
+<li>DynamoDB supports both key-values and documents.</li>
+</ul>
+</li>
+<li>Document stores provide high flexibility and are often used for working with occasionally changing data.</li>
+</ul>
 <p>Wide column store</p>
+<ul>
+<li>Abstraction: nested map <code>ColumnFamily&lt;RowKey, Columns&lt;ColKey, Value, Timestamp&gt;&gt;</code></li>
+<li></li>
+</ul>
 <p>Graph database</p>
 <h3 id="SQL-or-NoSQL"><a href="#SQL-or-NoSQL" class="headerlink" title="SQL or NoSQL"></a>SQL or NoSQL</h3><h2 id="Cache"><a href="#Cache" class="headerlink" title="Cache"></a>Cache</h2><h2 id="Asynchronism"><a href="#Asynchronism" class="headerlink" title="Asynchronism"></a>Asynchronism</h2><h2 id="Communication"><a href="#Communication" class="headerlink" title="Communication"></a>Communication</h2><h2 id="Security"><a href="#Security" class="headerlink" title="Security"></a>Security</h2><h2 id="Appendix"><a href="#Appendix" class="headerlink" title="Appendix"></a>Appendix</h2><h1 id="How-to-approach-a-system-design-interview-question"><a href="#How-to-approach-a-system-design-interview-question" class="headerlink" title="How to approach a system design interview question"></a>How to approach a system design interview question</h1><h1 id="References"><a href="#References" class="headerlink" title="References"></a>References</h1><ul>
 <li><a target="_blank" rel="noopener" href="https://github.com/donnemartin/system-design-primer">system design primer</a></li>
