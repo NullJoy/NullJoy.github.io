@@ -17,10 +17,10 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>System design 101 (WIP) | NullJoy&#39;s Blog</title>
+  <title>System design 101 (SD Primer Notes) | NullJoy&#39;s Blog</title>
   <meta name="description" content="System design topicsPerformance vs Scalability A performance problem: your system is slow for a single user. A scalability problem: your system is fast for a single user, but slow under heavy load.  L">
 <meta property="og:type" content="article">
-<meta property="og:title" content="System design 101 (WIP)">
+<meta property="og:title" content="System design 101 (SD Primer Notes)">
 <meta property="og:url" content="http://example.com/2025/04/27/System-design-101/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="System design topicsPerformance vs Scalability A performance problem: your system is slow for a single user. A scalability problem: your system is fast for a single user, but slow under heavy load.  L">
@@ -41,8 +41,11 @@
 <meta property="og:image" content="http://example.com/images/post-content/cache-4.drawio.png">
 <meta property="og:image" content="http://example.com/images/post-content/cache-5.drawio.png">
 <meta property="og:image" content="http://example.com/images/post-content/async-1.drawio.png">
+<meta property="og:image" content="http://example.com/images/post-content/communication-1.drawio.png">
+<meta property="og:image" content="http://example.com/images/post-content/communication-2.drawio.png">
+<meta property="og:image" content="http://example.com/images/post-content/communication-3.drawio.png">
 <meta property="article:published_time" content="2025-04-28T05:31:29.000Z">
-<meta property="article:modified_time" content="2026-03-10T04:41:10.857Z">
+<meta property="article:modified_time" content="2026-04-13T01:16:37.561Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="System design">
 <meta name="twitter:card" content="summary">
@@ -284,7 +287,7 @@
                 <a class="category-link" href="/categories/Tech-Misc/">Tech Misc</a>
               </p>
               <p class="item-title">
-                <a href="/2025/04/27/System-design-101/" class="title">System design 101 (WIP)</a>
+                <a href="/2025/04/27/System-design-101/" class="title">System design 101 (SD Primer Notes)</a>
               </p>
               <p class="item-date">
                 <time datetime="2025-04-28T05:31:29.000Z" itemprop="datePublished">2025-04-27</time>
@@ -352,7 +355,7 @@
   <div class="slimContent">
     <nav id="toc" class="article-toc">
       <h3 class="toc-title">Catalog</h3>
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#System-design-topics"><span class="toc-number">1.</span> <span class="toc-text">System design topics</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Performance-vs-Scalability"><span class="toc-number">1.1.</span> <span class="toc-text">Performance vs Scalability</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Latency-vs-Throughput"><span class="toc-number">1.2.</span> <span class="toc-text">Latency vs Throughput</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Availability-vs-Consistency"><span class="toc-number">1.3.</span> <span class="toc-text">Availability vs Consistency</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#CAP-theorem"><span class="toc-number">1.3.1.</span> <span class="toc-text">CAP theorem</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#CP-consistency-amp-partition-tolerance"><span class="toc-number">1.3.1.1.</span> <span class="toc-text">CP (consistency &amp; partition tolerance)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#AP-availability-amp-partition-tolerance"><span class="toc-number">1.3.1.2.</span> <span class="toc-text">AP (availability &amp; partition tolerance)</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Consistency-patterns"><span class="toc-number">1.4.</span> <span class="toc-text">Consistency patterns</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Weak-consistency"><span class="toc-number">1.4.1.</span> <span class="toc-text">Weak consistency</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Eventual-consistency"><span class="toc-number">1.4.2.</span> <span class="toc-text">Eventual consistency</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Strong-consistency"><span class="toc-number">1.4.3.</span> <span class="toc-text">Strong consistency</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Availability-patterns"><span class="toc-number">1.5.</span> <span class="toc-text">Availability patterns</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Fail-over"><span class="toc-number">1.5.1.</span> <span class="toc-text">Fail-over</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Replication"><span class="toc-number">1.5.2.</span> <span class="toc-text">Replication</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Availability-in-numbers"><span class="toc-number">1.5.3.</span> <span class="toc-text">Availability in numbers</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Domain-name-system-DNS"><span class="toc-number">1.6.</span> <span class="toc-text">Domain name system (DNS)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Disadvantages-of-DNS"><span class="toc-number">1.6.1.</span> <span class="toc-text">Disadvantages of DNS</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Content-delivery-network-CDN"><span class="toc-number">1.7.</span> <span class="toc-text">Content delivery network (CDN)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Push-CDNs"><span class="toc-number">1.7.1.</span> <span class="toc-text">Push CDNs</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Pull-CDNs"><span class="toc-number">1.7.2.</span> <span class="toc-text">Pull CDNs</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Disadvantages-of-CDN"><span class="toc-number">1.7.3.</span> <span class="toc-text">Disadvantages of CDN</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Load-balancer-LB"><span class="toc-number">1.8.</span> <span class="toc-text">Load balancer (LB)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Layer-4-load-balancing"><span class="toc-number">1.8.1.</span> <span class="toc-text">Layer 4 load balancing</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Layer-7-load-balancing"><span class="toc-number">1.8.2.</span> <span class="toc-text">Layer 7 load balancing</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Horizontal-scaling"><span class="toc-number">1.8.3.</span> <span class="toc-text">Horizontal scaling</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Disadvantages-of-horizontal-scaling"><span class="toc-number">1.8.3.1.</span> <span class="toc-text">Disadvantages of horizontal scaling</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Disadvantages-of-load-balancer"><span class="toc-number">1.8.4.</span> <span class="toc-text">Disadvantages of load balancer</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Reverse-proxy-web-server"><span class="toc-number">1.9.</span> <span class="toc-text">Reverse proxy (web server)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Load-balancer-VS-reverse-proxy"><span class="toc-number">1.9.1.</span> <span class="toc-text">Load balancer VS reverse proxy</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Disadvantages-of-reverse-proxy"><span class="toc-number">1.9.2.</span> <span class="toc-text">Disadvantages of reverse proxy</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Application-layer"><span class="toc-number">1.10.</span> <span class="toc-text">Application layer</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Microservices"><span class="toc-number">1.10.1.</span> <span class="toc-text">Microservices</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Service-discovery"><span class="toc-number">1.10.2.</span> <span class="toc-text">Service discovery</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Disadvantages-of-application-layer"><span class="toc-number">1.10.3.</span> <span class="toc-text">Disadvantages of application layer</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Database"><span class="toc-number">1.11.</span> <span class="toc-text">Database</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Relational-dasstabase-management-system-RDBMS"><span class="toc-number">1.11.1.</span> <span class="toc-text">Relational dasstabase management system (RDBMS)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#ACID"><span class="toc-number">1.11.1.1.</span> <span class="toc-text">ACID</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Scaling-techniques"><span class="toc-number">1.11.1.2.</span> <span class="toc-text">Scaling techniques</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Replication-1"><span class="toc-number">1.11.1.2.1.</span> <span class="toc-text">Replication</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Federation"><span class="toc-number">1.11.1.2.2.</span> <span class="toc-text">Federation</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Sharding"><span class="toc-number">1.11.1.2.3.</span> <span class="toc-text">Sharding</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Denormalization"><span class="toc-number">1.11.1.2.4.</span> <span class="toc-text">Denormalization</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#SQL-tuning"><span class="toc-number">1.11.1.2.5.</span> <span class="toc-text">SQL tuning</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#NoSQL"><span class="toc-number">1.11.2.</span> <span class="toc-text">NoSQL</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#BASE"><span class="toc-number">1.11.2.1.</span> <span class="toc-text">BASE</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#NoSQL-database-types"><span class="toc-number">1.11.2.2.</span> <span class="toc-text">NoSQL database types</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Key-value-store"><span class="toc-number">1.11.2.2.1.</span> <span class="toc-text">Key-value store</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Document-store"><span class="toc-number">1.11.2.2.2.</span> <span class="toc-text">Document store</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Wide-column-store"><span class="toc-number">1.11.2.2.3.</span> <span class="toc-text">Wide column store</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Graph-database"><span class="toc-number">1.11.2.2.4.</span> <span class="toc-text">Graph database</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SQL-or-NoSQL"><span class="toc-number">1.11.3.</span> <span class="toc-text">SQL or NoSQL</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Cache"><span class="toc-number">1.12.</span> <span class="toc-text">Cache</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Client-caching"><span class="toc-number">1.12.1.</span> <span class="toc-text">Client caching</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CDN-caching"><span class="toc-number">1.12.2.</span> <span class="toc-text">CDN caching</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Web-server-caching"><span class="toc-number">1.12.3.</span> <span class="toc-text">Web server caching</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Database-caching"><span class="toc-number">1.12.4.</span> <span class="toc-text">Database caching</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Applicaiton-caching"><span class="toc-number">1.12.5.</span> <span class="toc-text">Applicaiton caching</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Caching-at-the-database-query-level"><span class="toc-number">1.12.5.1.</span> <span class="toc-text">Caching at the database query level</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Caching-at-the-object-level"><span class="toc-number">1.12.5.2.</span> <span class="toc-text">Caching at the object level</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#When-to-update-cache"><span class="toc-number">1.12.6.</span> <span class="toc-text">When to update cache</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Cache-aside"><span class="toc-number">1.12.6.1.</span> <span class="toc-text">Cache-aside</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Write-through"><span class="toc-number">1.12.6.2.</span> <span class="toc-text">Write-through</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Write-behind-write-back"><span class="toc-number">1.12.6.3.</span> <span class="toc-text">Write-behind (write-back)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Refresh-ahead"><span class="toc-number">1.12.6.4.</span> <span class="toc-text">Refresh-ahead</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Disadvantages-of-cache"><span class="toc-number">1.12.7.</span> <span class="toc-text">Disadvantages of cache</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Asynchronism"><span class="toc-number">1.13.</span> <span class="toc-text">Asynchronism</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Message-queues"><span class="toc-number">1.13.1.</span> <span class="toc-text">Message queues</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Task-queues"><span class="toc-number">1.13.2.</span> <span class="toc-text">Task queues</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Back-pressure"><span class="toc-number">1.13.3.</span> <span class="toc-text">Back pressure</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Disadvantages-of-asynchronism"><span class="toc-number">1.13.4.</span> <span class="toc-text">Disadvantages of asynchronism</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Communication"><span class="toc-number">1.14.</span> <span class="toc-text">Communication</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Security"><span class="toc-number">1.15.</span> <span class="toc-text">Security</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Appendix"><span class="toc-number">1.16.</span> <span class="toc-text">Appendix</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#How-to-approach-a-system-design-interview-question"><span class="toc-number">2.</span> <span class="toc-text">How to approach a system design interview question</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#References"><span class="toc-number">3.</span> <span class="toc-text">References</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#System-design-topics"><span class="toc-number">1.</span> <span class="toc-text">System design topics</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Performance-vs-Scalability"><span class="toc-number">1.1.</span> <span class="toc-text">Performance vs Scalability</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Latency-vs-Throughput"><span class="toc-number">1.2.</span> <span class="toc-text">Latency vs Throughput</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Availability-vs-Consistency"><span class="toc-number">1.3.</span> <span class="toc-text">Availability vs Consistency</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#CAP-theorem"><span class="toc-number">1.3.1.</span> <span class="toc-text">CAP theorem</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#CP-consistency-amp-partition-tolerance"><span class="toc-number">1.3.1.1.</span> <span class="toc-text">CP (consistency &amp; partition tolerance)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#AP-availability-amp-partition-tolerance"><span class="toc-number">1.3.1.2.</span> <span class="toc-text">AP (availability &amp; partition tolerance)</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Consistency-patterns"><span class="toc-number">1.4.</span> <span class="toc-text">Consistency patterns</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Weak-consistency"><span class="toc-number">1.4.1.</span> <span class="toc-text">Weak consistency</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Eventual-consistency"><span class="toc-number">1.4.2.</span> <span class="toc-text">Eventual consistency</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Strong-consistency"><span class="toc-number">1.4.3.</span> <span class="toc-text">Strong consistency</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Availability-patterns"><span class="toc-number">1.5.</span> <span class="toc-text">Availability patterns</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Fail-over"><span class="toc-number">1.5.1.</span> <span class="toc-text">Fail-over</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Replication"><span class="toc-number">1.5.2.</span> <span class="toc-text">Replication</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Availability-in-numbers"><span class="toc-number">1.5.3.</span> <span class="toc-text">Availability in numbers</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Domain-name-system-DNS"><span class="toc-number">1.6.</span> <span class="toc-text">Domain name system (DNS)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Disadvantages-of-DNS"><span class="toc-number">1.6.1.</span> <span class="toc-text">Disadvantages of DNS</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Content-delivery-network-CDN"><span class="toc-number">1.7.</span> <span class="toc-text">Content delivery network (CDN)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Push-CDNs"><span class="toc-number">1.7.1.</span> <span class="toc-text">Push CDNs</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Pull-CDNs"><span class="toc-number">1.7.2.</span> <span class="toc-text">Pull CDNs</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Disadvantages-of-CDN"><span class="toc-number">1.7.3.</span> <span class="toc-text">Disadvantages of CDN</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Load-balancer-LB"><span class="toc-number">1.8.</span> <span class="toc-text">Load balancer (LB)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Layer-4-load-balancing"><span class="toc-number">1.8.1.</span> <span class="toc-text">Layer 4 load balancing</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Layer-7-load-balancing"><span class="toc-number">1.8.2.</span> <span class="toc-text">Layer 7 load balancing</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Horizontal-scaling"><span class="toc-number">1.8.3.</span> <span class="toc-text">Horizontal scaling</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Disadvantages-of-horizontal-scaling"><span class="toc-number">1.8.3.1.</span> <span class="toc-text">Disadvantages of horizontal scaling</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Disadvantages-of-load-balancer"><span class="toc-number">1.8.4.</span> <span class="toc-text">Disadvantages of load balancer</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Reverse-proxy-web-server"><span class="toc-number">1.9.</span> <span class="toc-text">Reverse proxy (web server)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Load-balancer-VS-reverse-proxy"><span class="toc-number">1.9.1.</span> <span class="toc-text">Load balancer VS reverse proxy</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Disadvantages-of-reverse-proxy"><span class="toc-number">1.9.2.</span> <span class="toc-text">Disadvantages of reverse proxy</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Application-layer"><span class="toc-number">1.10.</span> <span class="toc-text">Application layer</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Microservices"><span class="toc-number">1.10.1.</span> <span class="toc-text">Microservices</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Service-discovery"><span class="toc-number">1.10.2.</span> <span class="toc-text">Service discovery</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Disadvantages-of-application-layer"><span class="toc-number">1.10.3.</span> <span class="toc-text">Disadvantages of application layer</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Database"><span class="toc-number">1.11.</span> <span class="toc-text">Database</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Relational-dasstabase-management-system-RDBMS"><span class="toc-number">1.11.1.</span> <span class="toc-text">Relational dasstabase management system (RDBMS)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#ACID"><span class="toc-number">1.11.1.1.</span> <span class="toc-text">ACID</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Scaling-techniques"><span class="toc-number">1.11.1.2.</span> <span class="toc-text">Scaling techniques</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Replication-1"><span class="toc-number">1.11.1.2.1.</span> <span class="toc-text">Replication</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Federation"><span class="toc-number">1.11.1.2.2.</span> <span class="toc-text">Federation</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Sharding"><span class="toc-number">1.11.1.2.3.</span> <span class="toc-text">Sharding</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Denormalization"><span class="toc-number">1.11.1.2.4.</span> <span class="toc-text">Denormalization</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#SQL-tuning"><span class="toc-number">1.11.1.2.5.</span> <span class="toc-text">SQL tuning</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#NoSQL"><span class="toc-number">1.11.2.</span> <span class="toc-text">NoSQL</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#BASE"><span class="toc-number">1.11.2.1.</span> <span class="toc-text">BASE</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#NoSQL-database-types"><span class="toc-number">1.11.2.2.</span> <span class="toc-text">NoSQL database types</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Key-value-store"><span class="toc-number">1.11.2.2.1.</span> <span class="toc-text">Key-value store</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Document-store"><span class="toc-number">1.11.2.2.2.</span> <span class="toc-text">Document store</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Wide-column-store"><span class="toc-number">1.11.2.2.3.</span> <span class="toc-text">Wide column store</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Graph-database"><span class="toc-number">1.11.2.2.4.</span> <span class="toc-text">Graph database</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SQL-or-NoSQL"><span class="toc-number">1.11.3.</span> <span class="toc-text">SQL or NoSQL</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Cache"><span class="toc-number">1.12.</span> <span class="toc-text">Cache</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Client-caching"><span class="toc-number">1.12.1.</span> <span class="toc-text">Client caching</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CDN-caching"><span class="toc-number">1.12.2.</span> <span class="toc-text">CDN caching</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Web-server-caching"><span class="toc-number">1.12.3.</span> <span class="toc-text">Web server caching</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Database-caching"><span class="toc-number">1.12.4.</span> <span class="toc-text">Database caching</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Applicaiton-caching"><span class="toc-number">1.12.5.</span> <span class="toc-text">Applicaiton caching</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Caching-at-the-database-query-level"><span class="toc-number">1.12.5.1.</span> <span class="toc-text">Caching at the database query level</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Caching-at-the-object-level"><span class="toc-number">1.12.5.2.</span> <span class="toc-text">Caching at the object level</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#When-to-update-cache"><span class="toc-number">1.12.6.</span> <span class="toc-text">When to update cache</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Cache-aside"><span class="toc-number">1.12.6.1.</span> <span class="toc-text">Cache-aside</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Write-through"><span class="toc-number">1.12.6.2.</span> <span class="toc-text">Write-through</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Write-behind-write-back"><span class="toc-number">1.12.6.3.</span> <span class="toc-text">Write-behind (write-back)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Refresh-ahead"><span class="toc-number">1.12.6.4.</span> <span class="toc-text">Refresh-ahead</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Disadvantages-of-cache"><span class="toc-number">1.12.7.</span> <span class="toc-text">Disadvantages of cache</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Asynchronism"><span class="toc-number">1.13.</span> <span class="toc-text">Asynchronism</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Message-queues"><span class="toc-number">1.13.1.</span> <span class="toc-text">Message queues</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Task-queues"><span class="toc-number">1.13.2.</span> <span class="toc-text">Task queues</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Back-pressure"><span class="toc-number">1.13.3.</span> <span class="toc-text">Back pressure</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Disadvantages-of-asynchronism"><span class="toc-number">1.13.4.</span> <span class="toc-text">Disadvantages of asynchronism</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Communication"><span class="toc-number">1.14.</span> <span class="toc-text">Communication</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#OSI-Open-Systems-Interconnection-7-Layer-Model"><span class="toc-number">1.14.1.</span> <span class="toc-text">OSI (Open Systems Interconnection) 7 Layer Model</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Hypertext-transfer-protocol-HTTP"><span class="toc-number">1.14.2.</span> <span class="toc-text">Hypertext transfer protocol (HTTP)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Transmission-control-protocol-TCP"><span class="toc-number">1.14.3.</span> <span class="toc-text">Transmission control protocol (TCP)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#User-datagram-protocol-UDP"><span class="toc-number">1.14.4.</span> <span class="toc-text">User datagram protocol (UDP)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Remote-procedure-call-RPC"><span class="toc-number">1.14.5.</span> <span class="toc-text">Remote procedure call (RPC)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Disadvantages-of-RPC"><span class="toc-number">1.14.5.1.</span> <span class="toc-text">Disadvantages of RPC</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Representational-state-transfer-REST"><span class="toc-number">1.14.6.</span> <span class="toc-text">Representational state transfer (REST)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Disadvantages-of-REST"><span class="toc-number">1.14.6.1.</span> <span class="toc-text">Disadvantages of REST</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RPC-and-REST-calls-comparison"><span class="toc-number">1.14.7.</span> <span class="toc-text">RPC and REST calls comparison</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Security"><span class="toc-number">1.15.</span> <span class="toc-text">Security</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Appendix"><span class="toc-number">1.16.</span> <span class="toc-text">Appendix</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Power-of-two-table"><span class="toc-number">1.16.1.</span> <span class="toc-text">Power of two table</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Latency-numbers-every-programmer-should-know"><span class="toc-number">1.16.2.</span> <span class="toc-text">Latency numbers every programmer should know</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#How-to-approach-a-system-design-interview-question"><span class="toc-number">2.</span> <span class="toc-text">How to approach a system design interview question</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#References"><span class="toc-number">3.</span> <span class="toc-text">References</span></a></li></ol>
     </nav>
   </div>
 </aside>
@@ -366,7 +369,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      System design 101 (WIP)
+      System design 101 (SD Primer Notes)
     </h1>
   
 
@@ -396,10 +399,10 @@
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2025/04/27/System-design-101/#comments" class="article-comment-link">Comments</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 5.6k(words)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 7.8k(words)</span>
 	
 	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Count: 34(minutes)</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Count: 48(minutes)</span>
 	
 
       </div>
@@ -1125,7 +1128,544 @@
 <h3 id="Disadvantages-of-asynchronism"><a href="#Disadvantages-of-asynchronism" class="headerlink" title="Disadvantages of asynchronism"></a>Disadvantages of asynchronism</h3><ul>
 <li>Use cases such as inexpensive calculations and realtime workflows might be better suited for synchronous operations, as introducing queues can add delays and complexity.</li>
 </ul>
-<h2 id="Communication"><a href="#Communication" class="headerlink" title="Communication"></a>Communication</h2><h2 id="Security"><a href="#Security" class="headerlink" title="Security"></a>Security</h2><h2 id="Appendix"><a href="#Appendix" class="headerlink" title="Appendix"></a>Appendix</h2><h1 id="How-to-approach-a-system-design-interview-question"><a href="#How-to-approach-a-system-design-interview-question" class="headerlink" title="How to approach a system design interview question"></a>How to approach a system design interview question</h1><h1 id="References"><a href="#References" class="headerlink" title="References"></a>References</h1><ul>
+<h2 id="Communication"><a href="#Communication" class="headerlink" title="Communication"></a>Communication</h2><h3 id="OSI-Open-Systems-Interconnection-7-Layer-Model"><a href="#OSI-Open-Systems-Interconnection-7-Layer-Model" class="headerlink" title="OSI (Open Systems Interconnection) 7 Layer Model"></a>OSI (Open Systems Interconnection) 7 Layer Model</h3><table>
+<thead>
+<tr>
+<th>Layer</th>
+<th>Application</th>
+<th>Central Device / Protocols</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Application (7)</td>
+<td>End User Layer - Program that opens what was sent or creates what is to be sent</td>
+<td>User Applications, SMTP/<strong>HTTP</strong>, <strong>REST</strong></td>
+<td></td>
+</tr>
+<tr>
+<td>Presentation (6)</td>
+<td>Syntax Layer - Encrypt &amp; decrypt (if needed)</td>
+<td>JPEG/ASCII/EBDIC/TIFF/GIF</td>
+<td></td>
+</tr>
+<tr>
+<td>Session (5)</td>
+<td>Synch &amp; send to ports - (logical ports)</td>
+<td>Logical Ports, <strong>RPC</strong>/SQL/NFC, NetBIOS names</td>
+<td></td>
+</tr>
+<tr>
+<td>Transport (4)</td>
+<td>TCP - Host to host, Flow control</td>
+<td><strong>TCP</strong>/SPX/<strong>UDP</strong></td>
+<td>filtering packet</td>
+</tr>
+<tr>
+<td>Network (3)</td>
+<td>Packets - “letter”, contains IP address</td>
+<td>Routers, IP/IPX/ICMP</td>
+<td>filtering packet</td>
+</tr>
+<tr>
+<td>Data Link (2)</td>
+<td>Frames - “envelopes”, contains MAC address</td>
+<td>Switch, Bridge, WAP, PPP/SLIP</td>
+<td>land based layers</td>
+</tr>
+<tr>
+<td>Physical (1)</td>
+<td>Physical structure - cables, hubs, etc.</td>
+<td>Hub</td>
+<td>land based layers</td>
+</tr>
+</tbody></table>
+<h3 id="Hypertext-transfer-protocol-HTTP"><a href="#Hypertext-transfer-protocol-HTTP" class="headerlink" title="Hypertext transfer protocol (HTTP)"></a>Hypertext transfer protocol (HTTP)</h3><ul>
+<li>HTTP is a method for encoding and transporting data between a client and a server. <ul>
+<li>It is a request/response protocol: clients issue requests and servers issue reponses with relevant contetnt and completion status info about the request.</li>
+<li>HTTP is self-contained, allowing requests and responses to flow through many intermediate routers and servers that perform load balancing, caching, encryption, and compression.</li>
+</ul>
+</li>
+<li>A basic HTTP request consists of a verb (method) and a resource (endpoint). Below are common HTTP verbs:<table>
+<thead>
+<tr>
+<th>Verb</th>
+<th>Description</th>
+<th>Idempotent*</th>
+<th>Safe</th>
+<th>Cacheable</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>GET</td>
+<td>Reads a resource</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>POST</td>
+<td>Creates a resource or trigger a process that handles data</td>
+<td>No</td>
+<td>No</td>
+<td>Yes**</td>
+</tr>
+<tr>
+<td>PUT</td>
+<td>Creates or replace a resource</td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
+</tr>
+<tr>
+<td>PATCH</td>
+<td>Partially updates a resource</td>
+<td>No</td>
+<td>No</td>
+<td>Yes**</td>
+</tr>
+<tr>
+<td>DELETE</td>
+<td>Deletes a resource</td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
+</tr>
+</tbody></table>
+<ul>
+<li>*: Can be called many times without different outcomes.</li>
+<li>**: If response contains freshness info.</li>
+</ul>
+</li>
+<li>HTTP is an application layer protocol relying on lower-level protocols such as TCP and UDP. </li>
+</ul>
+<h3 id="Transmission-control-protocol-TCP"><a href="#Transmission-control-protocol-TCP" class="headerlink" title="Transmission control protocol (TCP)"></a>Transmission control protocol (TCP)</h3><img src="/images/post-content/communication-1.drawio.png" style="max-width: 50%; display: block; margin-left: auto; margin-right: auto; margin-top: 0px; margin-bottom: 0px;">
+
+<ul>
+<li>TCP is a connection-oriented protocol over an IP network. <ul>
+<li>Connection is established and terminated using a handshake.</li>
+<li>All packets sent are guaranteed to reach the destination in the original order and without corruption through:<ul>
+<li>Sequence numbers and checksum fields for each packet</li>
+<li>Acknowledgement packets and automatic retransmission</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>If the sender does not receive a correct response, it will resend the packets.<ul>
+<li>If there are multiple timeouts, the connection is dropped. </li>
+<li>TCP also implements flow control and congestion control.</li>
+<li>These guarantees cause delays and generally result in less efficient transmission than UDP.</li>
+</ul>
+</li>
+<li>To ensure high throughput, web servers can keep a large number of TCP connections open, resulting in high memory usage.<ul>
+<li>It can be expensive to have a large number of open connections between web server threads and say, a memcached server.</li>
+<li>Connection pooling can help in addition to switching to UDP where applicable.</li>
+</ul>
+</li>
+<li>TCP is useful for applications that require high reliability but are less time critical.<ul>
+<li>Some example include web servers, database info, SMTP, FTP, and SSH.</li>
+</ul>
+</li>
+<li>Use TCP over UDP when:<ul>
+<li>You need all of the data to arrive intact.</li>
+<li>You want to automatically make a best estimate use of the network throughput.</li>
+</ul>
+</li>
+</ul>
+<h3 id="User-datagram-protocol-UDP"><a href="#User-datagram-protocol-UDP" class="headerlink" title="User datagram protocol (UDP)"></a>User datagram protocol (UDP)</h3><img src="/images/post-content/communication-2.drawio.png" style="max-width: 50%; display: block; margin-left: auto; margin-right: auto; margin-top: 0px; margin-bottom: 0px;">
+
+<ul>
+<li>UDP is connectionless.<ul>
+<li>Datagrams (analogous to packets) are guaranteed only at the datagram level.</li>
+<li>Datagrams might reach their destination out of order or not at all.</li>
+<li>UDP does not support congestion control.</li>
+<li>Without the guarantees that TCP supports, UDP is generally more efficient.</li>
+</ul>
+</li>
+<li>UDP can broadcast, sending datagrams to all devices on the subnet.<ul>
+<li>This is useful with DHCP because the client has not yet received an IP address, thus preventing a way for TCP to stream without the IP address.</li>
+</ul>
+</li>
+<li>UDP is less reliable but works well in real time use cases such as VoIP, video chat, streaming, and realtime multiplayer games.</li>
+<li>Use UDP over TCP when:<ul>
+<li>You need the lowest latency.</li>
+<li>Late data is worse than loss of data.</li>
+<li>You want to implement your own error correction.</li>
+</ul>
+</li>
+</ul>
+<h3 id="Remote-procedure-call-RPC"><a href="#Remote-procedure-call-RPC" class="headerlink" title="Remote procedure call (RPC)"></a>Remote procedure call (RPC)</h3><img src="/images/post-content/communication-3.drawio.png" style="max-width: 90%; display: block; margin-left: auto; margin-right: auto; margin-top: 0px; margin-bottom: 0px;">
+
+<ul>
+<li>In an RPC, a client causes a procedure to execute on a different address space, usually a remote server. <ul>
+<li>The procedure is coded as if it were a local procedure call, abstracting away the details of how to communicate with the server from the client program. </li>
+<li>Remote calls are usually slower and less reliable than local calls, so it is helpful to distinguish RPC calls from local calls.</li>
+<li>Popular RPC frameworks include Protobuf, Thrift, and Avro.</li>
+</ul>
+</li>
+<li>RPC is a request-response protocol:<ul>
+<li>Client program: Calls the client stub procedure. The parameters are pushed onto the stack like a local procedure call.</li>
+<li>Client stub procedure: Marshalls (packs) procedure id and arguments into a request message.</li>
+<li>Client communication module: OS sends the message from the client to the server.</li>
+<li>Server communication module: OS passes the incoming packets to the server stub procedure.</li>
+<li>Server stub procedure: Unmarshalls the results, calls the server procedure matching the procedure id and passes the given arguments.</li>
+<li>The server response repeats the steps above in reverse order.</li>
+</ul>
+</li>
+<li>Sample RPC-style requests:<ul>
+<li>The <strong>procedure</strong> is often encoded in the path (<code>/someoperation</code>, <code>/anotheroperation</code>) instead of as a REST <em>resource</em> you are creating or replacing.</li>
+<li>The <strong>arguments</strong> are the query string or JSON body fields. The client stub turns your function call into one HTTP request; the server stub reads the path to pick which server function to run, unmarshalls the arguments, then marshalls the return value into the HTTP response.<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">GET /someoperation?data=anId</span><br><span class="line"></span><br><span class="line">POST /anotheroperation</span><br><span class="line">Content-Type: application/json</span><br><span class="line">&#123;</span><br><span class="line">  &quot;data&quot;: &quot;anId&quot;,</span><br><span class="line">  &quot;anotherdata&quot;: &quot;another value&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><code>GET</code> carries parameters in the URL (easy to cache or bookmark, limited size). <code>POST</code> carries a larger or structured payload in the body. Real RPC frameworks may use binary formats (Protobuf, Thrift) instead of JSON, but the idea is the same: <strong>name + serialized arguments in, serialized result out</strong>.</li>
+</ul>
+</li>
+<li>RPC is focused on exposing <strong>behaviors</strong>. <ul>
+<li>RPCs are often used for performance reasons with internal communications, as you can hand-craft native calls to better fit your use cases.</li>
+<li>Compact binary encodings (Protobuf, Thrift) and purpose-built procedures can shrink payloads and parsing cost compared to generic REST+JSON.</li>
+</ul>
+</li>
+<li>RPC is often consumed through a <strong>generated client or SDK</strong>—that is the <strong>client stub</strong>: it marshalls calls on the wire and exposes <strong>typed remote methods</strong> so app code does not hand-build HTTP.</li>
+<li>Prefer a native library (aka SDK) when:<ul>
+<li>Callers are <strong>few or internal</strong> (you can ship and update official clients with the API).</li>
+<li>You want <strong>one shared contract</strong> for methods, types, retries, and how <strong>errors surface</strong> to developers.</li>
+<li><strong>Performance and predictable UX</strong> matter more than supporting every generic HTTP client.</li>
+</ul>
+</li>
+<li><strong>REST-style HTTP</strong> is typical for <strong>public APIs</strong>, where many unknown clients integrate via documented URLs and verbs without a required SDK.</li>
+</ul>
+<h4 id="Disadvantages-of-RPC"><a href="#Disadvantages-of-RPC" class="headerlink" title="Disadvantages of RPC"></a>Disadvantages of RPC</h4><ul>
+<li>RPC clients become tightly coupled to the service implementation.</li>
+<li>A new API must be defined for every new operation or use case.</li>
+<li>It can be difficult to debug RPC.</li>
+<li>You might not be able to leverage existing technologies out of the box. For example, it might require additional effort to ensure RPC calls are properly cached on caching servers such as Squid.</li>
+</ul>
+<h3 id="Representational-state-transfer-REST"><a href="#Representational-state-transfer-REST" class="headerlink" title="Representational state transfer (REST)"></a>Representational state transfer (REST)</h3><ul>
+<li>REST is an architectural style enforcing a client/server model where the client acts on a set of resources managed by the server.<ul>
+<li>The server provides a representation of resources and actions that can either manipulate or get a new representation of resources.</li>
+<li>All communication must be stateless &amp; cacheable.</li>
+</ul>
+</li>
+<li><strong>4 qualities</strong> of a RESTful interface:<ul>
+<li>Identify resources (URI in HTTP): use the same URI regardless of any operation.</li>
+<li>Change with representations (Verbs in HTTP): use verbs headers, and body.</li>
+<li>Self-descriptive error message (status response in HTTP): use status code, don’t reinvent the wheel.</li>
+<li>Hypertext As the Engine of Application State/HATEOAS (HTML interface for HTTP): your web service should be fully accessible in a browser.</li>
+</ul>
+</li>
+<li>Sample REST calls:<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">GET /someresources/anId</span><br><span class="line"></span><br><span class="line">POST /someresources/anId</span><br><span class="line">Content-Type: application/json</span><br><span class="line">&#123;</span><br><span class="line">  &quot;anotherdata&quot;: &quot;another value&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>REST is focused on exposing <strong>data</strong>.<ul>
+<li>It minimizes the coupling between client/server and is often used for public HTTP APIs.</li>
+<li>REST uses a more generic and uniform method of exposing resources through URIs, representation through headers, and actions through verbs such as GET, POST, PUT, DELETE, and PATCH. </li>
+<li>Being stateless, REST is great for horizontal scaling and partitioning.</li>
+</ul>
+</li>
+</ul>
+<h4 id="Disadvantages-of-REST"><a href="#Disadvantages-of-REST" class="headerlink" title="Disadvantages of REST"></a>Disadvantages of REST</h4><ul>
+<li>With REST being focused on exposing data, it might not be a good fit if resources are not naturally organized or accessed in a simple hierarchy.<ul>
+<li>For example, returning all updated records from the past hour matching a particular set of events is not easily expressed as a path. With REST, it is likely to be implemented with a combination of URI path, query parameters, and possibly the request body.</li>
+</ul>
+</li>
+<li>REST typically relies on a few verbs (GET, POST, PUT, DELETE, and PATCH) which sometimes doesn’t fit your use case.<ul>
+<li>For example, moving expired documents to the archive folder might not cleanly fit within these verbs.</li>
+</ul>
+</li>
+<li>Fetching complicated resources with nested hierarchies requires multiple round trips between the client and server to render single views.<ul>
+<li>For example, fetching content of a blog entry and the comments on that entry.</li>
+<li>For mobile applications operating in variable network conditions, these multiple roundtrips are highly undesirable.</li>
+</ul>
+</li>
+<li>Over time, more fields might be added to an API response and older clients will receive all new data fields, even those that they do not need. As a result, it bloats the payload size and leads to larger latencies.</li>
+</ul>
+<h3 id="RPC-and-REST-calls-comparison"><a href="#RPC-and-REST-calls-comparison" class="headerlink" title="RPC and REST calls comparison"></a>RPC and REST calls comparison</h3><table>
+<thead>
+<tr>
+<th align="center">Operation</th>
+<th align="center">RPC</th>
+<th align="center">REST</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">Signup</td>
+<td align="center">POST /signup</td>
+<td align="center">POST /persons</td>
+</tr>
+<tr>
+<td align="center">Resign</td>
+<td align="center">POST /resign <br/>{“personid”: “1234”}</td>
+<td align="center">DELETE /persons/1234</td>
+</tr>
+<tr>
+<td align="center">Read a person</td>
+<td align="center">GET /readPerson?personid=1234</td>
+<td align="center">GET /persons/1234</td>
+</tr>
+<tr>
+<td align="center">Read a person’s items list</td>
+<td align="center">GET /readUsersItemsList?personid=1234</td>
+<td align="center">GET /persons/1234/items</td>
+</tr>
+<tr>
+<td align="center">Add an item to a person’s items</td>
+<td align="center">POST /addItemToUsersItemsList <br/>{“personid”: “1234”, “itemid”: “456”}</td>
+<td align="center">POST /persons/1234/items <br/>{“itemid”: “456”}</td>
+</tr>
+<tr>
+<td align="center">Update an item</td>
+<td align="center">POST /modifyItem <br/>{“itemid”: “456”, “key”: “value”}</td>
+<td align="center">PUT /items/456 <br/>{“key”: “value”}</td>
+</tr>
+<tr>
+<td align="center">Delete an item</td>
+<td align="center">POST /removeItem <br/>{“itemid”: “456”}</td>
+<td align="center">DELETE /items/456</td>
+</tr>
+</tbody></table>
+<h2 id="Security"><a href="#Security" class="headerlink" title="Security"></a>Security</h2><ul>
+<li>Encrypt in transit and at rest.</li>
+<li>Sanitize all user inputs or any input parameters exposed to user to prevent XSS and SQL injection.</li>
+<li>Use parameterized queries to prevent SQL injection.</li>
+<li>Use the principle of least privilege.</li>
+</ul>
+<h2 id="Appendix"><a href="#Appendix" class="headerlink" title="Appendix"></a>Appendix</h2><h3 id="Power-of-two-table"><a href="#Power-of-two-table" class="headerlink" title="Power of two table"></a>Power of two table</h3><table>
+<thead>
+<tr>
+<th align="right">Power</th>
+<th align="right">Exact Value</th>
+<th align="right">Approx Value</th>
+<th align="right">Bytes</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="right">7</td>
+<td align="right">128</td>
+<td align="right"></td>
+<td align="right"></td>
+</tr>
+<tr>
+<td align="right">8</td>
+<td align="right">256</td>
+<td align="right"></td>
+<td align="right"></td>
+</tr>
+<tr>
+<td align="right">10</td>
+<td align="right">1024</td>
+<td align="right">1 thousand</td>
+<td align="right">1KB</td>
+</tr>
+<tr>
+<td align="right">16</td>
+<td align="right">65536</td>
+<td align="right"></td>
+<td align="right"></td>
+</tr>
+<tr>
+<td align="right">20</td>
+<td align="right">1,048,576</td>
+<td align="right">1 million</td>
+<td align="right">1MB</td>
+</tr>
+<tr>
+<td align="right">30</td>
+<td align="right">1,073,741,824</td>
+<td align="right">1 billion</td>
+<td align="right">1GB</td>
+</tr>
+<tr>
+<td align="right">32</td>
+<td align="right">4,294,967,296</td>
+<td align="right"></td>
+<td align="right">4GB</td>
+</tr>
+<tr>
+<td align="right">40</td>
+<td align="right">1,099,511,627,776</td>
+<td align="right">1 trillion</td>
+<td align="right">1TB</td>
+</tr>
+</tbody></table>
+<h3 id="Latency-numbers-every-programmer-should-know"><a href="#Latency-numbers-every-programmer-should-know" class="headerlink" title="Latency numbers every programmer should know"></a>Latency numbers every programmer should know</h3><table>
+<thead>
+<tr>
+<th>Latency Comparison Numbers</th>
+<th align="right">ns: Nanoseconds <br/>= 10^-9 seconds</th>
+<th align="right">us: Microseconds <br/>= 10^-6 seconds</th>
+<th align="right">ms: Milliseconds <br/>= 10^-3 seconds</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>L1 cache reference</td>
+<td align="right">0.5 ns</td>
+<td align="right"></td>
+<td align="right"></td>
+<td></td>
+</tr>
+<tr>
+<td>Branch mispredict</td>
+<td align="right">5 ns</td>
+<td align="right"></td>
+<td align="right"></td>
+<td></td>
+</tr>
+<tr>
+<td>L2 cache reference</td>
+<td align="right">7 ns</td>
+<td align="right"></td>
+<td align="right"></td>
+<td>14x L1 cache</td>
+</tr>
+<tr>
+<td>Mutex lock/unlock</td>
+<td align="right">25 ns</td>
+<td align="right"></td>
+<td align="right"></td>
+<td></td>
+</tr>
+<tr>
+<td>Main memory reference</td>
+<td align="right">100 ns</td>
+<td align="right"></td>
+<td align="right"></td>
+<td>20x L2 cache, 200x L1 cache</td>
+</tr>
+<tr>
+<td>Compress 1K bytes with Zippy</td>
+<td align="right">10,000 ns</td>
+<td align="right">10 us</td>
+<td align="right"></td>
+<td></td>
+</tr>
+<tr>
+<td>Send 1KB bytes over 1Gbps network</td>
+<td align="right">10,000 ns</td>
+<td align="right">10 us</td>
+<td align="right"></td>
+<td></td>
+</tr>
+<tr>
+<td>Read 4KB randomly from SSD*</td>
+<td align="right">150,000 ns</td>
+<td align="right">150 us</td>
+<td align="right"></td>
+<td>~1GB/sec SSD</td>
+</tr>
+<tr>
+<td>Read 1MB sequentially from memory</td>
+<td align="right">250,000 ns</td>
+<td align="right">250 us</td>
+<td align="right"></td>
+<td></td>
+</tr>
+<tr>
+<td>Round trip within same datacenter</td>
+<td align="right">500,000 ns</td>
+<td align="right">500 us</td>
+<td align="right"></td>
+<td></td>
+</tr>
+<tr>
+<td>Read 1MB sequentially from SSD*</td>
+<td align="right">1,000,000 ns</td>
+<td align="right">1,000 us</td>
+<td align="right">1 ms</td>
+<td>~1GB/sec SSD, 4x memory</td>
+</tr>
+<tr>
+<td>HDD seek</td>
+<td align="right">10,000,000 ns</td>
+<td align="right">10,000 us</td>
+<td align="right">10 ms</td>
+<td>20x datacenter round trip</td>
+</tr>
+<tr>
+<td>Read 1MB sequentially from 1Gbps network</td>
+<td align="right">10,000,000 ns</td>
+<td align="right">10,000 us</td>
+<td align="right">10 ms</td>
+<td>40x memory, 10x SSD</td>
+</tr>
+<tr>
+<td>Read 1MB sequentially from HDD</td>
+<td align="right">30,000,000 ns</td>
+<td align="right">30,000 us</td>
+<td align="right">30 ms</td>
+<td>120x memory, 30x SSD</td>
+</tr>
+<tr>
+<td>Send packet CA -&gt; Netherlands -&gt; CA</td>
+<td align="right">150,000,000 ns</td>
+<td align="right">150,000 us</td>
+<td align="right">150 ms</td>
+<td></td>
+</tr>
+</tbody></table>
+<ul>
+<li>Rough mental ordering (fast → slow, small → big): <ul>
+<li>CPU registers → L1 → L2 → (L3) → RAM → disk(HDD, SSD, etc.)</li>
+</ul>
+</li>
+<li>Handy metrics based on numbers above<ul>
+<li>Read sequentially from HDD at 30 MB/s</li>
+<li>Read sequentially from 1Gbps Ethernet at 100 MB/s</li>
+<li>Read sequentially from SSD at 1 GB/s</li>
+<li>Read sequentially from main memory at 4 GB/s</li>
+<li>6-7 world-wide round trps per second</li>
+<li>2,000 round trips per second within a data center</li>
+</ul>
+</li>
+</ul>
+<h1 id="How-to-approach-a-system-design-interview-question"><a href="#How-to-approach-a-system-design-interview-question" class="headerlink" title="How to approach a system design interview question"></a>How to approach a system design interview question</h1><blockquote>
+<p>Everything is a trade-off!</p>
+</blockquote>
+<ul>
+<li>Open-ended conversation; you are expected to lead it</li>
+<li>Work through system design questions using the following steps<ul>
+<li><strong>Step 1: Outline use cases, constraints, and assumptions</strong><ul>
+<li>gather requirements and scope the problem</li>
+<li>ask questions to clarify use cases and constraints</li>
+<li>discuss assumptions<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">- Who is going to use it?</span><br><span class="line">- How are they going to use it?</span><br><span class="line">- How many users are there?</span><br><span class="line">- What does the system do?</span><br><span class="line">- What are the inputs and outputs of the system?</span><br><span class="line">- How much data do we expect to handle?</span><br><span class="line">- How many requests per second do we expect?</span><br><span class="line">- What is the expected read to write ratio?</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><strong>Step 2: Create a high level design</strong><ul>
+<li>sketch the main components and connections</li>
+<li>justify your ideas</li>
+</ul>
+</li>
+<li><strong>Step 3: Design core components</strong><ul>
+<li>dive into details for each core component<ul>
+<li>e.g. design a url shortening service<ul>
+<li>generating and storing a hash of the full url<ul>
+<li>MD5 and Base62</li>
+<li>Hash collisions</li>
+<li>SQL or NoSQL</li>
+<li>Database schema</li>
+</ul>
+</li>
+<li>translating a hashed url to the full url<ul>
+<li>Database lookup</li>
+</ul>
+</li>
+<li>API and object-oriented design</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Step 4: Scale the design</strong><ul>
+<li>identify and address bottlenecks, given the constraints; potential solutions and trade-offs</li>
+<li>load balancer, horizontal scaling, caching, databse sharding</li>
+<li>principles of scalable system design</li>
+</ul>
+</li>
+<li><strong>Back-of-the-envelope calculations</strong><ul>
+<li>might be asked to do some estimates by hand</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="References"><a href="#References" class="headerlink" title="References"></a>References</h1><ul>
 <li><a target="_blank" rel="noopener" href="https://github.com/donnemartin/system-design-primer">system design primer</a></li>
 </ul>
 
@@ -1137,7 +1677,7 @@
     
     <li class="post-copyright-link hidden-xs">
       <strong>Link to This Article: </strong>
-      <a href="http://example.com/2025/04/27/System-design-101/" title="System design 101 (WIP)" target="_blank" rel="external">http://example.com/2025/04/27/System-design-101/</a>
+      <a href="http://example.com/2025/04/27/System-design-101/" title="System design 101 (SD Primer Notes)" target="_blank" rel="external">http://example.com/2025/04/27/System-design-101/</a>
     </li>
     
     <li class="post-copyright-license">
